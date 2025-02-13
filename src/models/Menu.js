@@ -1,16 +1,17 @@
-const Item = require('./Item');
+const { getAllItems } = require("../controllers/menuController");
 
 class Menu {
     constructor(){
         this.items = [];
     }
 
-    addItem(type, description, price){
-        const newItem = new Item(type, description, price);
+    addItem(item){
+        this.items.push(item);
+    }
 
-        this.items.push(newItem);
-        return newItem;
+    getAllItems(){
+        return this.items;
     }
 }
 
-module.exports = new Menu();
+module.exports = Menu;
