@@ -1,7 +1,7 @@
 const Menu = require('../models/Menu.js');
 const Item = require('../models/Item.js');
 
-const cardapio = new Menu();
+const list = new Menu();
 
 list.addItem(new Item('Salgado','Hamburger', 20));
 list.addItem(new Item('Salgado','pão de queijo', 7));

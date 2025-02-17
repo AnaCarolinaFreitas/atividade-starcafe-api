@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const menuRoutes = require('./routes/menuRoutes.js');
+const menuRoutes = require('./src/routes/menuRoutes.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
