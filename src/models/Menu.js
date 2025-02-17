@@ -1,5 +1,3 @@
-const { getAllItems } = require("../controllers/menuController");
-
 class Menu {
     constructor(){
         this.items = [];
@@ -9,7 +7,7 @@ class Menu {
         this.items.push(item);
     }
 
-    getAllItems(){
+    getMenu(){
         return this.items;
     }
 }

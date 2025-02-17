@@ -1,37 +1,29 @@
-const Order = require('./Order');
-
 class OrderList {
     constructor() {
         this.orders = [];
     }
 
-    addOrder(client, type, description, price, status) {
-        const newOrder = new Order(client, type, description, price, status);
-
-        this.orders.push(newOrder);
-        return newOrder;
+    addOrder(order) {
+        this.orders.push(order);
     }
 
-    listOrders() {
+    getAllOrders() {
         return this.orders;
     }
 
     getOrderById(id) {
-        return this.orders.find(order => order.id === id);
+        const order = this.orders.find((order) => order.id == id);
+
         if (!order) {
             throw new Error('Order not found');
         }
+        return order;
     }
 
     deleteOrder(id) {
-        const order = this.order.findIndex(livro => livro.id === id);
-
-        if (index !== -1) {
-            return this.orders.splice(index, 1)[0];
-        }
-        return null
+        this.orders = this.orders.filter(order => order.id != id);
     }
 }
 
-module.exports = OrderList();
+module.exports = OrderList;
 

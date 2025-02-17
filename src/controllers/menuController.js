@@ -11,22 +11,27 @@ list.addItem(new Item('Bebida','Água', 5));
 list.addItem(new Item('Bebida','Café', 7));
 
 const router = {
-    getAllItems: (req, res) => {
-        try {
-            res.json(cardapio.getAllItems());
-        } catch (error) {
-            res.status(404).json({message: 'Nenhum item encontrado, tente novamente'});
-    }
-},
 
 addItem: (req, res) => {
     try {
         const {type, description, price} = req.body;
-        if (!description || !price);
-        cardapio.addItem(food);
+        if (!type ||!description || !price); {
+            throw new Error('Campos inválidos');
+        }
+        const item = new Item(type, description, price);
+        list.addItem(item);
         res.status(200).json({message: 'Item adicionado com sucesso'});
     } catch (error) {
         res.status(400).json({message: 'Erro ao adicionar item, tente novamente'});
+    }
+},
+
+getMenu: (req, res) => {
+    try {
+        const items = list.getMenu();
+        res.status(200).json(items);
+    } catch (error) {
+        res.status(400).json({message: 'Erro ao buscar itens, tente novamente'});
     }
 }
 }

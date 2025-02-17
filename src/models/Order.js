@@ -1,6 +1,7 @@
+const { v4: uuid4 } = require('uuid');
 class Order {
     constructor(client, type, description, price, status) {
-        this.id = uuidv4();
+        this.id = uuid4();
         this.client = client;
         this.type = type;
         this.description = description;
