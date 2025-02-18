@@ -43,7 +43,8 @@ const router = {
         try {
             const id = req.params.id;
             list.deleteOrder(order);
-            res.status(200).json({message: 'Pedido deletado com sucesso'});
+            if (order.status === 'preparando' || order.status === 'pronto') {
+                throw new Error('Pedido não pode ser deletado');}            
         } catch (error) {
             res.status(404).json({message: 'Pedido não encontrado'});
         }
