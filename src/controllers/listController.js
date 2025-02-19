@@ -42,9 +42,14 @@ const router = {
     deleteOrder: (req, res) => {
         try {
             const id = req.params.id;
-            list.deleteOrder(order);
-            if (order.status === 'preparando' || order.status === 'pronto') {
-                throw new Error('Pedido não pode ser deletado');}            
+            const order = list.getOrderById(id);
+
+            if (order.status === 'pendente') {
+                list.deleteOrder(id);
+                res.status(200).json({message: 'Pedido cancelado com sucesso'});
+            } else {
+                res.status(400).json({message: 'Pedido não pode ser cancelado pois já está sendo preparado ou já foi concluido'});
+            }           
         } catch (error) {
             res.status(404).json({message: 'Pedido não encontrado'});
         }
