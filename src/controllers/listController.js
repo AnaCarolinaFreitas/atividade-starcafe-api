@@ -9,15 +9,21 @@ list.addOrder(new Order('Larissa', 'Salgado', 'pão de queijo', 7, 'pendente'));
 const router = {
     addOrder: (req, res) => {
         try{
-            const { client, type, description, price, status } = req.body;
-            if (!client || !type || !description || !price || !status) {
-                throw new Error('Campos inválidos');
+            const { client, type, description, price } = req.body;
+            if (!client || !type || !description || !price) {
+                throw new Error('Campos inválidos, preencha todos os campos');
             }
-            const order = new Order(client, type, description, price, status);
+            if (typeof price !== 'number') {
+                throw new Error('Preço inválido, insira o valor do pedido em números');
+            }
+            if (description !== 'Croissant de chocolate' && description !== 'pão de queijo' && description !== 'Hamburger' && description !== 'Bolo de pote' && description !== 'Água' && description !== 'Café') {
+                throw new Error('Item não encontrado no cardápio');
+            }
+            const order = new Order(client, type, description, price, 'pendente');
             list.addOrder(order);
             res.status(200).json({message: 'Pedido adicionado com sucesso'});
         } catch (error) {
-            res.status(400).json({message: 'Erro ao adicionar pedido, tente novamente'});
+            res.status(400).json({message: `Erro ao adicionar pedido: ${error.message}`});
         }
     },
 
