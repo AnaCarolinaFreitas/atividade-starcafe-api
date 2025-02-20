@@ -38,7 +38,7 @@ Thu, 20 Feb 2025 00:01:52 GMT
 timeout=5
 
 #### Corpo da resposta (JSON)
-![Corpo da resposta para a rota GET/menu](image.png)
+![Corpo da resposta para a rota GET/menu](./media/image.png)
 
 #### Código de Status
 <li> ✔️ 200 OK: Sucesso: client fez uma requisição GET para rota /menu 
@@ -57,7 +57,7 @@ Permite que um cliente faça um pedido
 <li> Accept-Encoding: gzip, deflate, br
 <li> Connection: keep-alive 
 
-![Corpo da requisição para a rota POST/order](image-2.png)
+![Corpo da requisição para a rota POST/order](./media/image-2.png)
 
 #### Cabeçalhos HTTP da resposta
 <li> X-Powered-By: Express
@@ -72,7 +72,7 @@ Thu, 20 Feb 2025 00:27:59 GMT
 timeout=5
 
 #### Corpo da resposta (JSON)
-![Corpo da resposta para a rota POST/order](image-1.png)
+![Corpo da resposta para a rota POST/order](./media/image-1.png)
 
 #### Código de Status
 <li> ✔️ 200 OK: Sucesso: Cliente realiza o pedido
@@ -83,7 +83,7 @@ timeout=5
 ### GET /order/:id
 Consulta o status de um pedido
 
-![IMAGE](image3.png)
+![IMAGE](./media/image3.png)
 
 #### Cabeçalho HTTP da Requisição
 <li> Postman-Token: calculated when request is sent
@@ -106,7 +106,7 @@ Thu, 20 Feb 2025 00:59:55 GMT
 timeout=5
 
 #### Corpo da resposta (JSON)
-![Corpo da resposta para a rota  GET /order/:id](image4.png)
+![Corpo da resposta para a rota  GET /order/:id](./media/image4.png)
 
 #### Código de Status
 <li> ✔️ 200 OK: Sucesso: Cliente consulta pedido e seu status
@@ -115,7 +115,7 @@ timeout=5
 ### DELETE /order/:id 
 Cancela um pedido (caso ainda não tenha sido preparado).
 
-![alt text](image5.png)
+![alt text](./media/image5.png)
 
 #### Cabeçalho HTTP da Requisição
 <li> Postman-Token: calculated when request is sent
@@ -139,7 +139,7 @@ Thu, 20 Feb 2025 01:11:21 GMT
 timeout=5
 
 #### Corpo da resposta (JSON)
-![Corpo da resposta para a rota  GET /order/:id](image6.png)
+![Corpo da resposta para a rota  GET /order/:id](./media/image6.png)
 
 #### Código de Status
 <li> ✔️ 200 OK: Cliente cancela pedido
